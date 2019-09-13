@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% block title %}<title>Paramhans</title>{% endblock %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+
+
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark mynav">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" >
+      <a class="navbar-brand" href="/"><B>PARAMHANS</B></a>
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link"href="/shop/sample/"><b>PRODUCTS</b></a>
+                </li>
+                {% if not request.user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Login/"><b>SIGN IN</b></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup/"><b>SIGN UP</b></a>
+                    </li>
+                {% endif %}
+
+
+                {% if request.user.is_authenticated%}
+                        {% if not request.user.is_superuser %}
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+MY ACCOUNT        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item"  href="/cart/">MY CART</a>
+          <a class="dropdown-item" href="/lastorders/">MY ORDERS</a>
+          <a class="dropdown-item" href="/ordered/">DELIVERED ORDERS</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item"  href="/logout/">LOGOUT</a>
+        </div>
+      </li>
+
+                        {% endif %}
+                {% endif %}
+
+                    {% if request.user.is_superuser %}
+         <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+MY ACCOUNT        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/AdminCorner/">ORDERS</a>
+                                 <a class="dropdown-item" href="/adminpage/">ADMIN PANEL</a>
+          <a class="dropdown-item" href="/AddProduct/">ADD PRODUCT</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item"  href="/logout/">LOGOUT</a>
+        </div>
+      </li>
+                        {% endif %}
+
+
+                <li class="nav-item"><a class="nav-link" href="#contact"><b>CONTACT</b></a></li>
+
+            </ul>
+        </div>
+</nav>
+
+{% block body %}
+<body class="index parallax">
+<div style="margin-top:5.5%">
+    <center>
+<div class="jumbotron jumbotron-fluid text-center text-white" >
+  <div class="container">
+      <h1>PARAMHANS EARTHENWARE AROMA SALES</h1>
+      <h5>TERACOTTA CLAY PRODUCTS</h5>
+
+      <br><br>
+
+      <h2><center>About Us</center></h2>
+      <h4><center>Offering you the best of kitchen household products- designed pottery,which serves the purpose of both art and healthy,non-toxic food.</center></h4>
+      <h4><center>Delivering utensils to your doorstep that are eco-friendly,easy to clean and preserve the nutritional values of food.</center></h4>
+      <h4><center>"OUR SOIL IS GOLD,EAT IN GOLD"</center></h4>
+<br>
+      <br>
+  </div>
+</div>
+{% endblock body %}
+<div id="contact" class="jumbotron  text-center text-white ">
+  <div class="container">
+    <h5>Contact us </h5>
+   <p>PARAMHANS EARTHENWARE AROMA SALES </p>
+      <p><span class="glyphicon glyphicon-phone"></span> +91 9990082027</p>
+      <p><span class="glyphicon glyphicon-envelope"></span> paramhansearthenware@gmail.com</p>
+  </div>
+</div>
+
+</body>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</html>

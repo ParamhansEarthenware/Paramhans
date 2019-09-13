@@ -1,0 +1,61 @@
+<!doctype html>
+{% extends 'index.html' %}
+{% load staticfiles %}
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+    {% block title %}
+  <title>Signup</title>
+    {% endblock %}
+</head>
+{% block body %}
+<body class="mybody parallax">
+
+<div class="container-fluid col-sm-6 " style="margin-top : 100px; margin-bottom : 100px;">
+    <div class="card ">
+  <div class="container my-5 ">
+   <center><h1> SignUp </h1>
+      <form action=" " method="post">
+          {% csrf_token %}
+        <div class="row">
+            <div class="col-12 mb-3">
+
+                <input type="text"  class="form-control" name="uname" placeholder="User Name" value="" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <input type="text"  class="form-control" name="first_name" value="" placeholder="First Name" required>
+            </div>
+            <div class="col-md-6 mb-3">
+                <input type="text"  class="form-control" name="last_name" value="" placeholder="Last Name">
+            </div>
+            <div class="col-12 mb-3">
+                <input type="email"  class="form-control" name="email" placeholder="Mail Id" value="">
+            </div>
+            <div class="col-12 mb-3">
+                <input type="password"  class="form-control" name="pward" placeholder="Password" value="">
+            </div>
+            <div class="col-12 mb-3">
+                <input type="password"  class="form-control" name="cpward" placeholder="Confirm Password" value="">
+            </div>
+            <div class="col-12 mb-3">
+                <button type="submit" class="btn btn-success">SignUp</button>
+            </div>
+            <div class="col-12 mb-3">
+                <a href="/Login/" class="btn btn-primary">Already Have an Account </a></center>
+            </div>
+        </div>
+      </form>
+        {% if messages %}
+        <div class="alert alert-danger">
+          {% for i in messages %}
+                {{i}}
+          {% endfor %}
+         </div>
+        {% endif %}
+  </div>
+</div>
+</center>
+                    </div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,48 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+{% block body %}
+        <div style="margin-top : 70px; margin-bottom : 70px;">
+                <h2><center>ADMIN PANEL</center></h2>
+        </div>
+            <div class="cart-table clearfix">
+                            <table class="table table-responsive table-striped table-bordered ">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th></th>
+                                        <th><u>NAME</u></th>
+                                        <th><u>ID</u></th>
+                                        <th><u>PRICE</u></th>
+                                        <th><u>EDIT</u></th>
+                                        <th><u>DELETE</u></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for i in Data %}
+                                    <tr>
+                                        <td class="cart_product_img col-lg-4 col-md-4 col-sm-6 col-xs-6 col-lg-4" height="100px" width="85px" >
+                                            <a href="/productdetails/{{i.id}}/" > <img src="{{i.img1.url}}"height="450px" width="300px" class="img-fluid"></a>
+                                        </td>
+                                        <td class="nam">
+                                            <h5><a href="/productdetails/{{i.id}}/">{{i.name}}</a> </h5>
+                                        </td>
+                                        <td class="nam">
+                                            <h5><a href="/productdetails/{{i.id}}/">{{i.id}}</a> </h5>
+                                        </td>
+                                        <td class="price">
+                                            <span>{{i.price}}</span>
+                                        </td>
+                                        <td><a class="btn btn-info" href="/edit/{{i.id}}/">Edit</a> </td>
+                                        <td><a class="btn btn-info" href="/delete/{{i.id}}/">Delete</a> </td>
+                                    </tr>
+                                {%endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+</body>
+    <!-- ##### Main Content Wrapper End ##### -->
+{% endblock %}
+</html>

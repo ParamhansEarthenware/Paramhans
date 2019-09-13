@@ -1,0 +1,53 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+</head>
+
+{% block body %}
+<body class="mybody parallax">
+<center>
+<div class="container-fluid col-md-4" style="margin-top : 150px; margin-bottom : 100px;">
+    <div class="card ">
+  <div class="container my-5 ">
+        <div class="col-12 user-img">
+          <img src="{% static 'images/face.png' %}" width="50" height="50">
+        </div>
+          <h2>LOGIN</h2>
+        <div class="col-17 form-input">
+         <form action="" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <br>
+              <input type="text" class="form-control" name="usernam" placeholder="Enter Username">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" name="passwrd" placeholder="Enter Password">
+            </div>
+            <button type="submit" class="btn btn-success">Login</button>
+             <a class="btn btn-info" href="/signup/">SignUp</a>
+
+          </form>
+            {% if messages %}
+               <div class="alert alert-danger">
+               {% for i in messages %}
+                 {{i}}
+               {% endfor %}
+               </div>
+            {% endif %}
+        </div>
+
+      </div>
+    </div>
+</div>
+</center>
+
+</body>
+{% endblock body %}
+
+
+</html>

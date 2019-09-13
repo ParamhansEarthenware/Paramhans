@@ -1,0 +1,53 @@
+{% extends 'index.html' %}
+<!DOCTYPE html>
+<html lang="en">
+{% block body %}
+<body class="mybody parallax">
+
+<div class="container-fluid col-sm-6 " style="margin-top : 100px; margin-bottom : 100px;">
+    <div class="card ">
+  <div class="container my-5 ">
+   <center><h1> EDIT PRODUCT </h1>
+
+                            <form action="#" method="post" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="row">
+
+
+                                    <div class="col-md-12 mb-3">
+                                        <label>Product Name</label>
+                                        <input type="text" class="form-control" name="name" value="{{Data.name}}">
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <label>Product Description</label>
+                                        <input type="text" class="form-control" name="description" value="{{Data.description}}">
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <label>Basic Price</label>
+
+                                        <input type="number" class="form-control" name="basicPrice" value="{{Data.basicPrice}}">
+                                    </div>
+                                    <div class="col-12 mb-3">
+
+                                        <label>Discount(%)</label>
+                                        <input type="number" class="form-control mb-3" name="discount" value="{{Data.discount}}">
+                                    </div>
+                                        <button type="submit" class="btn btn-info align-center">Edit</button>
+                                </div>
+                            </form>
+                            {% if messages %}
+                                <div class="alert alert-success">
+                                {% for i in messages %}
+                                    {{i}}
+                                {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+    </div>
+</div>
+</body>
+
+    <!-- ##### Main Content Wrapper End ##### -->
+
+{% endblock %}
+</html>

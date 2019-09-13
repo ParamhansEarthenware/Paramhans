@@ -1,0 +1,67 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<head>
+    {% block title %}<title>Cart</title>{% endblock %}
+</head>
+{% block body %}
+        <div class="cart-table-area section-padding-100" style="margin-top: 150px;">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 col-lg-9">
+                        <div class="cart-title mt-50">
+                            <div class="alert alert-danger">
+                                Welcome : {{request.user.username}}
+                            </div>
+                            <h2>Your Orders</h2>
+                        </div>
+
+                        <div class="cart-table clearfix">
+                            <table class="table table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Name</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for i in Data %}
+                                    <tr>
+                                        <td class="cart_product_img">
+                                            <a href="#"><img src="{{i.order_product.img1.url}}" alt="Product"height="450px" width="300px" class="img-fluid"></a>
+                                        </td>
+                                        <td class="cart_product_desc">
+                                            <h5>{{i.order_product.name}}</h5>
+                                        </td>
+                                        <td class="price">
+                                            <span>{{i.order_product.price}}*{{i.count}}</span>
+                                        </td>
+
+                                        <td class="qty">
+                                            <div class="qty-btn d-flex">
+                                                <h5>Qty  </h5>
+                                                <h5> {{i.count}}</h5>
+
+
+                                            </div>
+                                        </td>
+                                         <td class="price">
+                                            <span>PARAM00{{i.ordernumber}}</span>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+    <!-- ##### Main Content Wrapper End ##### -->
+{% endblock %}
+</html>

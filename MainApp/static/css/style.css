@@ -1,0 +1,35 @@
+.index{
+background-image: url('https://cdn.shopify.com/s/files/1/0284/1780/products/DSC_5173.jpg?v=1538452620');
+background-size: cover;
+background-repeat: no-repeat;
+
+}
+.parallax {
+
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.shop{
+background-image: url('https://www.hbutterfield.co.uk/images/ww/side/_resized/Chimney%20Pots_476_0_14_84_489_372.jpg');
+
+}
+
+.mybody{
+background-image: url('https://cdn.shopify.com/s/files/1/0284/1780/products/DSC_5173.jpg?v=1538452620');
+background-size: cover;
+background-repeat: no-repeat;
+
+}
+
+
+.navbar{
+background-color: rgba(0,0,0,0.5) !important;
+}
+.jumbotron{
+background-color: rgba(0,0,0,0.5) !important;
+
+}
+
